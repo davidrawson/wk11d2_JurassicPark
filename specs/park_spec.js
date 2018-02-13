@@ -14,6 +14,9 @@ describe ('Park', function(){
     dinosaur2 = new Dinosaur("Velociraptor", 9);
     dinosaur3 = new Dinosaur("Triceratops", 2);
     dinosaur4 = new Dinosaur("Velociraptor", 8);
+    tyrannosaurus = new Dinosaur("Tyrannosaurus", 4);
+    dilophosaurus = new Dinosaur("Dilophosaurus", 3)
+
 
     park = new Park;
   });
@@ -53,4 +56,21 @@ describe ('Park', function(){
     const actual = park.overTwoOffspring().length;
     assert.strictEqual(actual, 2);
   });
+
+  it('should be able to calculate number of dinosaurs after 1 year starting with 1 dinosaur', function(){
+    park.addDinosaur(tyrannosaurus);
+    assert.strictEqual(park.calculateDinosaurs(1), 4);
+  });
+
+  it('should be able to calculate number of dinosaurs after 2 years starting with 1 dinosaur', function(){
+    park.addDinosaur(tyrannosaurus);
+    assert.strictEqual(park.calculateDinosaurs(2), 16);
+  });
+
+  it('should be able to calculate number of dinosaur after year two starting with 2 dinosaurs', function(){
+    park.addDinosaur(tyrannosaurus);
+    park.addDinosaur(dilophosaurus);
+    assert.strictEqual(park.calculateDinosaurs(2), 25);
+  });
+
 });

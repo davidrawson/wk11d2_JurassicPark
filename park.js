@@ -21,7 +21,6 @@ Park.prototype.removeType = function(type){
     index = toBeRemoved[i-1];
     this.enclosure.splice(index, 1);
   }
-  // console.log('remove by type',this.enclosure);
 }
 
 Park.prototype.overTwoOffspring = function(){
@@ -39,9 +38,16 @@ Park.prototype.overTwoOffspring = function(){
     let dino = this.enclosure.splice(index, 1)
     returningDinosaurs.push(dino);
   }
-  // console.log('enclosure', this.enclosure);
-  // console.log('returning Dinos', returningDinosaurs);
   return returningDinosaurs;
 }
+
+Park.prototype.calculateDinosaurs = function(years){
+  let newDinosaurNumber = 0;
+  for (let i = 0; i < this.enclosure.length; i += 1){
+    newDinosaurNumber += this.enclosure[i].numberOfOffspring**years;
+  }
+  return newDinosaurNumber;
+}
+
 
 module.exports = Park;
