@@ -44,7 +44,7 @@ Park.prototype.overTwoOffspring = function(){
 Park.prototype.calculateDinosaurs = function(years){
   let newDinosaurNumber = 0;
   for (let i = 0; i < this.enclosure.length; i += 1){
-    newDinosaurNumber += this.enclosure[i].numberOfOffspring**years;
+    newDinosaurNumber += (this.enclosure[i].numberOfOffspring+1)**years;
   }
   return newDinosaurNumber;
 }
